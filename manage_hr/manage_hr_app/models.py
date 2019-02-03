@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from datetime import datetime
 
 class Student(models.Model):
     first_name = models.CharField("student's first name", max_length = 256)
@@ -14,8 +15,8 @@ class Student(models.Model):
     age = models.PositiveSmallIntegerField(null = False)
     bday = models.DateField(null = True)
     chara = models.TextField(null = True)
-    flag = models.BooleanField(null = False)
-
+    flag = models.BooleanField(null = False, default = True)
+    date_created = models.DateTimeField(False, True, editable=False, default=datetime.now())
     def __str__(self):
         return "User name is {} {}.".format(self.first_name, self.last_name)
 
@@ -34,7 +35,7 @@ class BelongSchool(models.Model):
     department = models.CharField(max_length = 256)
     concentration = models.CharField(max_length = 256)
     art_or_science = models.BooleanField(null = True)
-    deviation = models.PositiveSmallIntegerField()
+    deviation = models.PositiveSmallIntegerField(null = True)
 
     def __str__(self):
         return "{}".format(self.school_name)
