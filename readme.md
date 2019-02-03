@@ -27,8 +27,12 @@ Djangoのインストール
 `$ django-admin startproject サイト名`
 
 ---
+
 アプリ作成
-`$ python manage.py startapp アプリ名`
+```
+$ cd プロジェクト名
+$ python manage.py startapp アプリ名
+```
 
 ___
 
