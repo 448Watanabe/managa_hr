@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Student(models.Model):
     first_name = models.CharField("student's first name", max_length = 256)
@@ -40,7 +41,10 @@ class BelongSchool(models.Model):
         ("S", "Science"),
     )
     art_or_science = models.CharField(max_length = 1, choices= My_choices)
-    deviation = models.PositiveSmallIntegerField(null = True)
+    deviation = models.PositiveSmallIntegerField(null = True, validators=[
+            MaxValueValidator(100),
+            MinValueValidator(1)
+        ])
 
     def __str__(self):
         return "{}".format(self.school_name)
