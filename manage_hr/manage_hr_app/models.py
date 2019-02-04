@@ -33,9 +33,13 @@ class Friend(models.Model):
 
 class BelongSchool(models.Model):
     school_name = models.CharField(max_length = 256, null = False)
-    department = models.CharField(max_length = 256)
-    concentration = models.CharField(max_length = 256)
-    art_or_science = models.BooleanField(null = True)
+    department = models.CharField(max_length = 256, null = True)
+    concentration = models.CharField(max_length = 256, null = True)
+    My_choices = (
+        ("A", "Art"),
+        ("S", "Science"),
+    )
+    art_or_science = models.CharField(max_length = 1, choices= My_choices)
     deviation = models.PositiveSmallIntegerField(null = True)
 
     def __str__(self):
