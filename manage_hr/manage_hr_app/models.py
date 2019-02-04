@@ -2,11 +2,10 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from datetime import datetime
 
 class Student(models.Model):
     first_name = models.CharField("student's first name", max_length = 256)
-    last_name = models.CharField("student7s last name", max_length = 256)
+    last_name = models.CharField("student's last name", max_length = 256)
     email = models.EmailField("email address", max_length = 256, unique = True)
     phone = models.SmallIntegerField(unique = True) # ハイフンは含まないで入力ように設定
     password = models.CharField("password", max_length = 512)
@@ -16,19 +15,21 @@ class Student(models.Model):
     bday = models.DateField(null = True)
     chara = models.TextField(null = True)
     flag = models.BooleanField(null = False, default = True)
-    date_created = models.DateTimeField(False, True, editable=False, default=datetime.now())
+    created_date = models.DateTimeField(auto_now=False, auto_now_add=True, editable=False)
+    # created_date = models.DateTimeField(False, True, editable=False, default=datetime.now()) だとエラーになる
     def __str__(self):
         return "User name is {} {}.".format(self.first_name, self.last_name)
+    
 
 
-class Friends(models.Model):
-    student_id = models.SmallIntegerField(unique = True)
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, null = False)
-    friend_id = models.SmallIntegerField(unique = True)
-    friend = models.ForeignKey(Student, on_delete=models.CASCADE, null = False)
+class Friend(models.Model):
+    # student_id = models.SmallIntegerField(unique = True)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, null = False, related_name='%(class)s_student')
+    # friend_id = models.SmallIntegerField(unique = True)
+    friend = models.ForeignKey(Student, on_delete=models.CASCADE, null = False, related_name='%(class)s_friend')
     
     def __str__(self):
-        return "{}{}".format(self.student_id, self.student)
+        return "{}".format(self.student)
 
 class BelongSchool(models.Model):
     school_name = models.CharField(max_length = 256, null = False)
@@ -42,12 +43,12 @@ class BelongSchool(models.Model):
 
 
 class DesiredSchool(models.Model):
-    student_id = models.SmallIntegerField(unique = True)
+    # student_id = models.SmallIntegerField(unique = True)
     student = models.ForeignKey(Student, on_delete=models.CASCADE, null = False)
-    school_id = models.SmallIntegerField(unique = True)
+    # school_id = models.SmallIntegerField(unique = True)
     school = models.ForeignKey(BelongSchool, on_delete=models.CASCADE, null = False)
     
     def __str__(self):
-        return "{}{}".format(self.student_id, self.school)
+        return "{}".format(self.student_id)
 
     
