@@ -28,7 +28,7 @@ Djangoのインストール
 
 ---
 
-アプリ作成
+### アプリ作成
 ```
 $ python manage.py startapp アプリ名
 ```
