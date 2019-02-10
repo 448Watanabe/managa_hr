@@ -1,33 +1,39 @@
 # 人管理アプリ with Django
 ## 事前準備
 ---
-#### pipenvのインストール
+### pipenvのインストール
 
-`$pip install pipenv`
-*バージョンの指定いる？
+```bash
+# *バージョンの指定いる？
+$ pip install pipenv
+```
 
-pipenvのシェルコマンドで起動
+### pipenvのシェルコマンドで起動
 
-`$pipenv shell`
+```bash
+$ pipenv shell
+```
 
 ---
-Djangoのインストール
+### Djangoのインストール
 
-`$pip install django`*バージョン指定がある時はバージョンを指定する
+```bash
+# *バージョン指定がある時はバージョンを指定する
+$ pip install django
+```
 
-バーション確認で、ちゃんとインストール出来ているかの確認
+### バーション確認で、ちゃんとインストール出来ているかの確認
 
 ```
 >>> import django
 >>> django.get_version()
 ```
 ---
-プロジェクト作成
+### プロジェクト作成
 
-`$ django-admin startproject サイト名`
-
----
-
+```bash
+$ django-admin startproject サイト名
+```
 ### アプリ作成
 ```
 $ python manage.py startapp アプリ名
