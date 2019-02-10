@@ -30,7 +30,6 @@ Djangoのインストール
 
 アプリ作成
 ```
-$ cd プロジェクト名
 $ python manage.py startapp アプリ名
 ```
 
