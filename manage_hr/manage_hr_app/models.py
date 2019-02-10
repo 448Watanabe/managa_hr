@@ -57,6 +57,6 @@ class DesiredSchool(models.Model):
     school = models.ForeignKey(BelongSchool, on_delete=models.CASCADE, null = False)
     
     def __str__(self):
-        return "{}".format(self.student_id)
+        return "{}".format(self.student)
 
     
