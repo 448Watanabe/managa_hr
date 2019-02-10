@@ -34,8 +34,6 @@ $ pip install django
 ```bash
 $ django-admin startproject サイト名
 ```
-
----
 ### アプリ作成
 ```
 $ python manage.py startapp アプリ名

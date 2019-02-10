@@ -1,0 +1,31 @@
+{%load static %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static "table.css" %}">
+  </head>
+
+{% block content %}
+<table>
+  <tr>
+    <td>ナンバー</td>
+    <td>名前</td>
+    <td>苗字</td>
+  </tr>
+
+  {% for student in student_list %}
+    <div class="card mb-3">
+      <h2 class="card-header bg-dark text-white"></h2>
+      <div class="card-body">
+        <tr>
+            <td>{{ forloop.counter }}</td>
+          <td>{{ student.first_name }}</td>
+          <td>{{ student.last_name }}</td>
+        </tr> 
+      </div>
+    </div>
+  {% endfor %}
+</table>
+
+{% endblock %}
+
+<!--テーブルに対するスタイルシート-->
