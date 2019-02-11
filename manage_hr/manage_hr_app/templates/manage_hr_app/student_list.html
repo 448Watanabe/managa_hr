@@ -2,12 +2,13 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="{% static "table.css" %}">
-  </head>
+</head>
 
 {% block content %}
 <table>
   <tr>
     <td>ナンバー</td>
+    <td>ID</td>
     <td>名前</td>
     <td>苗字</td>
   </tr>
@@ -18,6 +19,7 @@
       <div class="card-body">
         <tr>
             <td>{{ forloop.counter }}</td>
+          <td><a href = "{% url 'manage_hr_app:detail' student.id %}">{{ student.id }}</a></td>
           <td>{{ student.first_name }}</td>
           <td>{{ student.last_name }}</td>
         </tr> 

@@ -22,3 +22,6 @@ class IndexView(generic.ListView):
             )
         return queryset
     """
+
+class DetailView(generic.DetailView):
+    model = Student

@@ -15,7 +15,7 @@ class Student(models.Model):
     age = models.PositiveSmallIntegerField(null = False)
     bday = models.DateField(null = True)
     chara = models.TextField(null = True)
-    flag = models.BooleanField(null = False, default = True)
+    flag = models.BooleanField(null = False, default = True) # 塾に所属しているか否か
     created_date = models.DateTimeField(auto_now=False, auto_now_add=True, editable=False)
     # created_date = models.DateTimeField(False, True, editable=False, default=datetime.now()) だとエラーになる
     def __str__(self):
